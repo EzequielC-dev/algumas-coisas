@@ -1,0 +1,265 @@
+body {
+    background-color: #FFE3E3;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E74C3C; /* Vermelho principal */
+    padding: 10px 20px;
+    height: 60px;
+    width: 100%;
+    position: fixed; /* Faz o cabeçalho fixo */
+    top: 0; /* Fixa o cabeçalho no topo da página */
+    left: 0;
+    z-index: 1000; /* Garante que o cabeçalho fique por cima de outros elementos */
+}
+
+
+
+.rectangle {
+    background-color: #E74C3C; /* Cor do retângulo */
+    margin: 40px auto; /* Espaçamento acima/abaixo e centralização horizontal */
+    width: 90%; /* Largura do retângulo (ajustável) */
+    max-width: 2500px; /* Largura máxima do retângulo */
+    padding: 140px; /* Espaçamento interno */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar destaque */
+    text-align: center; /* Centraliza o texto dentro do retângulo */
+}
+
+/* Estilização do logo */
+.logo img {
+    height: 40px; /* Ajuste para o tamanho do logo */
+}
+
+/* Barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 0 20px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.search-input {
+    flex: 1;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 200px;
+    font-size: 16px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: -35px;
+    height: 20px;
+    width: 20px;
+}
+
+.search-button img {
+    height: 100%;
+    width: 100%;
+}
+
+/* Estilos do carrinho e notificação */
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #E74C3C; /* Vermelho para destacar */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos do conteúdo do carrinho */
+#cart-items {
+    margin: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #E74C3C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilos gerais */
+
+
+
+
+/* Seção com imagem */
+.image-section {
+    display: flex; /* Configura layout flexível */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center; /* Centraliza horizontalmente */
+    background-color: #FCE4E4; /* Cor de fundo geral */
+    height: 300px; /* Altura da seção */
+}
+
+/* Blocos laterais */
+.block {
+    flex: 1; /* Ocupa o espaço disponível */
+    background-color: #B1E6D9; /* Cor de fundo dos blocos laterais */
+    height: 100%; /* Preenche a altura da seção */
+}
+
+/* Imagem central */
+.center-image {
+    display: block;
+    max-height: 100%; /* Garante que a imagem caiba na seção */
+    max-width: 300px; /* Limita a largura máxima da imagem */
+}
+
+/* Grid de Produtos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 20px; /* Espaçamento entre os cards */
+    padding: 20px;
+    background-color: #FCE4E4; /* Fundo geral */
+}
+
+/* Card do Produto */
+.product-card {
+    background-color: #FFFFFF; /* Fundo branco */
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Imagem do Produto */
+.product-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Título do Produto */
+.product-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    margin: 10px 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+/* Preço do Produto */
+.product-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #E74C3C; /* Cor do preço */
+    margin: 10px 0;
+}
+
+/* Ações do Produto */
+.product-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Campo de Quantidade */
+.product-quantity {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Botão de Adicionar ao Carrinho */
+.add-to-cart {
+    background-color: #AEECEB;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #86D1D0;
+}
+
+/* Estilo do Rodapé */
+.footer {
+    width: 100%; /* Ocupa toda a largura */
+    background-color: #E74C3C; /* Cor de fundo */
+    color: #FFFFFF; /* Texto branco */
+    padding: 50px 20px; /* Espaçamento interno (vertical e lateral) */
+    position: relative; /* Pode ser "fixed" se quiser fixar no fim da tela */
+    bottom: 0;
+    left: 0;
+    text-align: justify; /* Justifica o texto */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve no topo */
+}
+
+
+/* Estilo do Conteúdo */
+.footer-content p {
+    margin: 0;
+    font-size: 14px; /* Tamanho do texto */
+}
+
+.image-text-container {
+    display: flex; /* Usando flexbox para alinhar imagem e texto */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    gap: 10px; /* Espaço entre a imagem e o texto */
+}
+
+.small-image {
+    width: 50px; /* Tamanho da imagem */
+    height: 50px; /* Tamanho da imagem */
+    object-fit: cover; /* Faz a imagem não distorcer */
+}
+
+.text {
+    font-size: 16px; /* Tamanho do texto */
+    color: #ffffff; /* Cor do texto */
+    margin: 0; /* Remove o espaçamento padrão do parágrafo */
+}

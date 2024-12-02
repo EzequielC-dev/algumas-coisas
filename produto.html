@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/cherry doces.png" type="image/png">
+    <title>Detalhes do Produto</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo">
+            <img id="logo-button" src="imagens/cherry doces.png" alt="Cherry Doces">
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar produto" class="search-input">
+            <button class="search-button">
+                <img src="imagens/Vector.png" alt="Search">
+            </button>
+        </div>
+        <div class="cart">
+            <img src="imagens/carrinho.png" alt="Carrinho">
+        </div>
+    </header>
+
+    <!-- Detalhes do Produto -->
+    <main class="product-details">
+        <div class="product-container">
+            <img id="product-image" src="" alt="Imagem do Produto">
+            <div class="product-info">
+                <h1 id="product-name"></h1>
+                <p id="product-price"></p>
+                <button class="buy-button">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>O Potinho da Felicidade se compromete em oferecer produtos de qualidade, com doces e balas cuidadosamente selecionados para levar alegria a você. As imagens exibidas neste site são meramente ilustrativas. <br>
+            Os preços apresentados na loja virtual podem variar conforme a região. Informações sobre valores, prazos de validade, estoque e origem dos produtos podem ser confirmadas diretamente nas lojas. Consulte a loja para verificar a disponibilidade dos Pacotinhos da Felicidade.</p>
+    
+            <br><br>
+    
+            <p>Entre em contato conosco:</p>
+    
+            <br><br>
+    
+            <div class="image-text-container">
+                <img src="imagens/insta.png" alt="Imagem 1" class="small-image">
+                <p class="text">@fulanadetal</p>
+            </div>
+    
+            <br><br>
+            
+            <div class="image-text-container">
+                <img src="imagens/zap.png" alt="Imagem 1" class="small-image">
+                <p class="text">1392039-1293</p>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Recuperar os dados do produto armazenados no LocalStorage
+        document.getElementById('product-name').innerText = localStorage.getItem('productName');
+        document.getElementById('product-image').src = localStorage.getItem('productImage');
+        document.getElementById('product-price').innerText = 'R$ ' + localStorage.getItem('productPrice');
+    </script>
+   <script>
+    document.getElementById("logo-button").addEventListener("click", function () {
+        if (window.location.pathname !== "/index.html") {
+            window.location.href = "index.html";
+        } else {
+            window.scrollTo(0, 0);
+        }
+    });
+</script>
+
+    
+</body>
+</html>

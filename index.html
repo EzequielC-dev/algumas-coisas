@@ -2,14 +2,153 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operadores Condicionais</title>
+    <link rel="icon" href="imagens/cherry doces.png" type="image/png"> <!-- Para .png -->
+    <title>Loja Cherry Doces</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Função para redirecionar para a página do produto
+        function showProduct(name, image, price) {
+            // Armazena os dados do produto no LocalStorage
+            localStorage.setItem('productName', name);
+            localStorage.setItem('productImage', image);
+            localStorage.setItem('productPrice', price);
+    
+            // Redireciona para a página do produto
+            window.location.href = 'produto.html';
+        }
+
+        // Função para adicionar produto ao carrinho
+        function addToCart(name, image, price) {
+            // Recupera os produtos do carrinho, se existirem
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Cria um novo objeto para o produto
+            const product = {
+                name: name,
+                image: image,
+                price: price
+            };
+
+            // Adiciona o produto ao carrinho
+            cart.push(product);
+
+            // Salva o carrinho atualizado no localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Atualiza o contador do carrinho
+            updateCartNotification();
+        }
+
+        // Função para atualizar o contador do carrinho
+        function updateCartNotification() {
+            // Atualiza o número de produtos no carrinho
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = cart.length;
+
+            // Exibe o contador no ícone do carrinho
+            const cartIcon = document.querySelector('.cart-notification');
+            cartIcon.textContent = cartCount;
+        }
+
+        // Chama a função de atualização assim que a página carrega
+        window.onload = updateCartNotification;
+    </script>
 </head>
 <body>
-    <h1>Olá esse é o meu site</h1>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo">
+            <img id="logo-button" src="imagens/cherry doces.png" alt="Cherry Doces">
+        </div>        
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar produto" class="search-input">
+            <button class="search-button">
+                <img src="imagens/Vector.png" alt="Search">
+            </button>
+        </div>
+        <div class="cart" onclick="window.location.href='carrinho.html'">
+            <img src="imagens/carrinho.png" alt="Carrinho">
+            <div class="cart-notification">0</div> <!-- Notificação de itens -->
+        </div>
+    </header>
 
-    <script src="function.js"></script>
+    <!-- Imagem Cereja -->
+    <section class="image-section">
+        <div class="block left"></div> <!-- Bloco esquerdo -->
+        <img src="imagens/cereja.png" alt="Cerejas" class="center-image"> <!-- Imagem central -->
+        <div class="block right"></div> <!-- Bloco direito -->
+    </section>
+
+    <!-- Produtos -->
+    <section class="product-grid">
+        <!-- Produto 1 -->
+        <div class="product-card" onclick="showProduct('Pacotinho de Felicidade Melancia', 'imagens/Pacote 1.jpeg', 6.00)">
+            <img src="imagens/Pacote 1.jpeg" alt="Pacotinho de Felicidade Melancia" class="product-image">
+            <h3 class="product-title">Pacotinho de Felicidade Melancia</h3>
+            <p class="product-price">R$: 6,00</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Pacotinho de Felicidade Melancia', 'imagens/Pacote 1.jpeg', 6.00)">Adicionar ao Carrinho</button>
+        </div>
+    
+        <!-- Produto 2 -->
+        <div class="product-card" onclick="showProduct('Pacotinho de Felicidade Uva', 'imagens/Mousse.jpeg', 5.00)">
+            <img src="imagens/Mousse.jpeg" alt="Pacotinho de Felicidade Uva" class="product-image">
+            <h3 class="product-title">Pacotinho de Felicidade Uva</h3>
+            <p class="product-price">R$: 5,00</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Pacotinho de Felicidade Uva', 'imagens/Mousse.jpeg', 5.00)">Adicionar ao Carrinho</button>
+        </div>
+    
+        <!-- Produto 3 -->
+        <div class="product-card" onclick="showProduct('Pacotinho de Felicidade Amendoim', 'imagens/Pacote 3.jpeg', 4.50)">
+            <img src="imagens/Pacote 3.jpeg" alt="Pacotinho de Felicidade Amendoim" class="product-image">
+            <h3 class="product-title">Pacotinho de Felicidade Amendoim</h3>
+            <p class="product-price">R$: 4,50</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Pacotinho de Felicidade Amendoim', 'imagens/Pacote 3.jpeg', 4.50)">Adicionar ao Carrinho</button>
+        </div>
+    
+        <!-- Produto 4 -->
+        <div class="product-card" onclick="showProduct('Pacotinho de Felicidade Melancia', 'imagens/Pacote 4.jpeg', 6.00)">
+            <img src="imagens/Pacote 4.jpeg" alt="Pacotinho de Felicidade Melancia" class="product-image">
+            <h3 class="product-title">Pacotinho de Felicidade Melancia</h3>
+            <p class="product-price">R$: 6,00</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Pacotinho de Felicidade Melancia', 'imagens/Pacote 4.jpeg', 6.00)">Adicionar ao Carrinho</button>
+        </div>
+    
+        <!-- Produto 5 -->
+        <div class="product-card" onclick="showProduct('Pacotinho de Felicidade Melancia', 'imagens/Pacote 5.jpeg', 6.00)">
+            <img src="imagens/Pacote 5.jpeg" alt="Pacotinho de Felicidade Melancia" class="product-image">
+            <h3 class="product-title">Pacotinho de Felicidade Melancia</h3>
+            <p class="product-price">R$: 6,00</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Pacotinho de Felicidade Melancia', 'imagens/Pacote 5.jpeg', 6.00)">Adicionar ao Carrinho</button>
+        </div>
+    
+        <!-- Produto 6 -->
+        <div class="product-card" onclick="showProduct('Mousses', 'imagens/Pacote 2.jpeg', 10.00)">
+            <img src="imagens/Pacote 2.jpeg" alt="Mousses" class="product-image">
+            <h3 class="product-title">Mousses</h3>
+            <p class="product-price">R$: 10,00</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Mousses', 'imagens/Pacote 2.jpeg', 10.00)">Adicionar ao Carrinho</button>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>O Potinho da Felicidade se compromete em oferecer produtos de qualidade, com doces e balas cuidadosamente selecionados para levar alegria a você. As imagens exibidas neste site são meramente ilustrativas. <br>
+            Os preços apresentados na loja virtual podem variar conforme a região. Informações sobre valores, prazos de validade, estoque e origem dos produtos podem ser confirmadas diretamente nas lojas. Consulte a loja para verificar a disponibilidade dos Pacotinhos da Felicidade.</p>
+            <br><br>
+            <p>Entre em contato conosco:</p>
+            <br><br>
+            <div class="image-text-container">
+                <img src="imagens/insta.png" alt="Imagem 1" class="small-image">
+                <p class="text">@fulanadetal</p>
+            </div>
+            <br><br>
+            <div class="image-text-container">
+                <img src="imagens/zap.png" alt="Imagem 1" class="small-image">
+                <p class="text">1392039-1293</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
